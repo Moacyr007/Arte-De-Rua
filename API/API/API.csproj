@@ -19,8 +19,4 @@
     <PackageReference Include="Google.Cloud.Firestore" Version="1.1.0-beta01" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>

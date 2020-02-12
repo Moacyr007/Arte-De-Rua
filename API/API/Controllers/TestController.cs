@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 
 
 using Google.Cloud.Firestore;
@@ -12,12 +13,12 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class MoaHentaiController : ControllerBase
+    public class TestController : ControllerBase
     {
-        
-        private readonly ILogger<MoaHentaiController> _logger;
 
-        public MoaHentaiController(ILogger<MoaHentaiController> logger)
+        private readonly ILogger<TestController> _logger;
+
+        public TestController(ILogger<TestController> logger)
         {
             _logger = logger;
         }
@@ -28,7 +29,7 @@ namespace API.Controllers
             FirestoreDb db = FirestoreDb.Create("moahentaiclicker-267718");
             Console.WriteLine("Created Cloud Firestore client with project ID: {0}", "moahentaiclicker-267718");
 
-            DocumentReference docRef = db.Collection("peixes").Document("alovelace");
+            DocumentReference docRef = db.Collection("Peixes").Document("Pacu");
             Dictionary<string, object> user = new Dictionary<string, object>
 {
                 { "First", "Ada" },
@@ -38,5 +39,13 @@ namespace API.Controllers
             await docRef.SetAsync(user);
 
         }
+        /*
+        [HttpPost]
+        [Route("post")]
+        public JsonResult postFunction([FromBody])
+        {
+            return Json(new { succcess = true, result = "My name is " });
+        }
+        */
     }
 }
